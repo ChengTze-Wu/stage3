@@ -6,16 +6,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="ChengTze" />
-        <title>weHelpImage</title>
+        <title>WeHelpBoard</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}"
+        />
     </head>
     <body>
         <h2>發表一篇圖文</h2>
-        <form action="post">
-            <label for="content">文字內容</label>
-            <input type="text" name="content" id="content" />
-            <label for="image">圖片檔案</label>
-            <input type="file" name="image" id="image" />
-            <input type="submit" value="送出" />
-        </form>
+        <label for="content">文字內容</label>
+        <input type="text" name="content" id="content" />
+        <br />
+        <label for="image">圖片檔案</label>
+        <input type="file" name="image" id="image" accept="image/*" />
+        <br />
+        <input type="submit" value="送出" />
+        <hr />
+        <div id="root"></div>
+        <script src="{{ url_for('static', filename='connect.js') }}"></script>
     </body>
 </html>
