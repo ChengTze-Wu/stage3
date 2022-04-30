@@ -1,1 +1,7 @@
 venv/
+
+.aws/
+
+__pycache__
+
+.env
