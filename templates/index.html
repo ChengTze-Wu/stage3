@@ -14,9 +14,11 @@
         <input type="text" name="content" id="content" />
         <br />
         <label for="image">圖片檔案</label>
-        <input type="file" name="image" id="image" />
+        <input type="file" name="image" id="image" accept="image/*" />
+        <br />
         <input type="submit" value="送出" />
+        <hr />
         <div id="root"></div>
-        <script src="../connect.js"></script>
+        <script src="{{ url_for('static', filename='connect.js') }}"></script>
     </body>
 </html>

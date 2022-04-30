@@ -7,8 +7,8 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-app.register_blueprint(api.rds, prefix="/api")
-app.register_blueprint(api.s3, prefix="/api")
+app.register_blueprint(api.downloader, url_prefix="/api")
+app.register_blueprint(api.uploader, url_prefix="/api")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3500)
+    app.run(debug=True ,host="0.0.0.0", port=3500)
