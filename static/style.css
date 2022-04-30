@@ -1,0 +1,12 @@
+#root {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#root > img {
+    width: 200px;
+}
+
+#root > hr {
+    width: 100%;
+}

@@ -5,10 +5,9 @@ const renderToBoard = (content, imgUrl) => {
     const hr = document.createElement("hr");
     p.textContent = content;
     img.src = imgUrl;
-    img.style.width = "300px";
-    root.appendChild(p);
-    root.appendChild(img);
     root.appendChild(hr);
+    root.appendChild(img);
+    root.appendChild(p);
 };
 
 const upload = () => {
@@ -44,7 +43,7 @@ const downloadOne = async () => {
     return data["data"];
 };
 
-const loding = async () => {
+const initloding = async () => {
     const datas = await downloadAll();
     datas.forEach((data) => {
         renderToBoard(data[0], data[1]);
@@ -52,5 +51,5 @@ const loding = async () => {
 };
 
 // mainExe
-loding();
+initloding();
 upload();

@@ -37,7 +37,6 @@ def get_lastdata_from_rds():
         query = ("SELECT * FROM board ORDER BY id DESC LIMIT 0,1")
         cursor.execute(query)
         data = cursor.fetchone()
-        print(data)
         return {"data": data}
     except Exception as e:
         raise e
