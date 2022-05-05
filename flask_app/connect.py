@@ -1,5 +1,6 @@
 import boto3
 from botocore.exceptions import ClientError
+from botocore.config import Config
 import logging
 import mysql.connector
 from dotenv import load_dotenv
@@ -7,7 +8,7 @@ import os
 
 load_dotenv() 
 
-config = {
+rds_config = {
     'user': os.environ['DB_USER'],
     'password': os.environ['DB_PASSWORD'],
     'host': os.environ['DB_HOST'],
@@ -28,7 +29,7 @@ def upload_file_to_s3(file, bucket, object_name=None):
 # rds
 cnx = mysql.connector.connect(pool_name="rds",
                               pool_size=5,
-                              **config)
+                              **rds_config)
 
 def get_lastdata_from_rds():
     try:
