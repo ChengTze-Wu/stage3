@@ -6,9 +6,9 @@ services:
         restart: always
         build: ./flask_app
         env_file:
-            - ./flask_app/.env
+            - ./.env
         volumes:
-            - ~/wehelp/stage3/flask_app/.aws/.:/usr/src/flask_app/.aws
+            - ./.aws/.:/usr/src/flask_app/.aws
         ports:
             - "8000:8000"
         command: gunicorn -w 2 -b 0.0.0.0:8000 wsgi:app
