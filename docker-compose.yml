@@ -2,21 +2,22 @@ version: "3.3"
 
 services:
     flask_app:
-        container_name: flask_app
-        restart: always
-        build: ./flask_app
+        image: chengtze/stage3_flask_app
         env_file:
             - ./.env
         volumes:
             - ./.aws/.:/usr/src/flask_app/.aws
+            - ./loaderio-7d439812d414b477181647566d228996.html:/usr/src/flask_app/templates/loaderio-7d439812d414b477181647566d228996.html
         ports:
             - "8000:8000"
         command: gunicorn -w 2 -b 0.0.0.0:8000 wsgi:app
 
     nginx:
-        container_name: nginx
-        restart: always
-        build: ./nginx
+        image: chengtze/stage3_nginx
+        volumes:
+            - ./99FC5B7AA5225C15DDF475C4B8C4ED63.txt:/var/www/html/.well-known/pki-validation/99FC5B7AA5225C15DDF475C4B8C4ED63.txt
+            - ./certificate.crt:/etc/ssl/certificate.crt
+            - ./private.key:/etc/ssl/private.key
         ports:
             - "80:80"
             - "443:443"
